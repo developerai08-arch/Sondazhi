@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sondazh: Nëse Edi Rama largohet, kë do të zgjidhnit?</title>
+<meta name="description" content="Voto në sondazhin &quot;Nëse Edi Rama largohet, kë do të zgjidhnit?&quot; dhe shih rezultatet pas votës.">
+<meta name="theme-color" content="#d71a28">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='20' fill='%23d71a28'/%3E%3Crect x='22' y='46' width='52' height='30' rx='4' fill='white'/%3E%3Crect x='40' y='20' width='16' height='34' rx='3' fill='white' transform='rotate(-10 48 37)'/%3E%3Crect x='30' y='52' width='36' height='6' rx='3' fill='%23d71a28'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nëse Edi Rama largohet…">
+<meta property="og:description" content="Kë do të zgjidhnit? Voto dhe shih rezultatet.">
+<style>
+:root{--bg:#f4f1ec;--card:#fff;--tx:#17171a;--mu:#6c6a72;--bd:#e3dfd8;--ac:#d71a28;--ac2:#fdeceb;--bar:#ece8e1;--hero1:#14141a;--hero2:#3a0d12}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark;--bg:#0e0e11;--card:#18181d;--tx:#f3f1ec;--mu:#9b99a2;--bd:#2b2a31;--ac:#ff4d5a;--ac2:#2c1519;--bar:#26252b;--hero1:#1b1b22;--hero2:#4a1017}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:36px 20px 74px;text-align:center;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(215,26,40,.55),transparent 70%);top:-110px;right:-80px}
+.badge{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;position:relative}
+h1{font-size:clamp(1.7rem,7vw,2.5rem);line-height:1.15;margin:16px 0 8px;position:relative}
+.q{font-size:1.15rem;opacity:.92;margin:0;position:relative}
+main{max-width:600px;margin:-48px auto 0;padding:0 14px 40px;position:relative}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:18px;box-shadow:0 14px 40px rgba(0,0,0,.12)}
+.hint{color:var(--mu);font-size:.9rem;margin:0 0 4px;text-align:center}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);color:var(--tx);border:1.5px solid var(--bd);border-radius:14px;padding:14px;margin-top:10px;font:inherit;font-size:1rem;cursor:pointer;transition:transform .12s,border-color .15s,background .15s}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--ac);background:var(--ac2)}
+.dot{width:22px;height:22px;border-radius:50%;border:2px solid var(--bd);flex:none}
+.opt.sel .dot{border-color:var(--ac);background:radial-gradient(var(--ac) 42%,transparent 48%)}
+.go{width:100%;margin-top:18px;padding:15px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--ac),#a80f1b);color:#fff;font:inherit;font-weight:700;font-size:1.05rem;cursor:pointer}
+.go:disabled{opacity:.4;cursor:default}
+.pill{display:flex;justify-content:space-between;align-items:center;background:var(--ac2);border-radius:14px;padding:14px 16px;margin-top:20px}
+.pill span{color:var(--mu);font-size:.92rem}
+.pill b{font-size:1.9rem;color:var(--ac);font-variant-numeric:tabular-nums}
+.row{margin-top:16px}
+.top{display:flex;justify-content:space-between;gap:10px}
+.top b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.track{height:14px;background:var(--bar);border-radius:9px;margin-top:7px;overflow:hidden}
+.fill{height:100%;border-radius:9px;background:linear-gradient(90deg,var(--ac),#ff7a85);transition:width .7s}
+.row.lead .top span{font-weight:700}
+.note{color:var(--mu);font-size:.85rem;margin:14px 0 0;text-align:center}
+.msg{padding:16px;border-radius:14px;background:var(--ac2);text-align:center}
+.thanks{text-align:center;font-weight:600;margin:4px 0 14px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <span class="badge">Sondazh</span>
+  <h1>Nëse Edi Rama largohet…</h1>
+  <p class="q">Kë do të zgjidhnit?</p>
+</header>
+<main><div id="app" class="card">Duke u ngarkuar…</div></main>
+<script>
+/* ====== NDRYSHO VETËM KËTË RRESHT (shih udhëzimet) ====== */
+var DB_URL = "https://sondazhi-1-default-rtdb.firebaseio.com"; // p.sh. https://emri-projektit-default-rtdb.europe-west1.firebasedatabase.app
+/* ======================================================= */
+
+var OPTIONS=["Partia Socialiste (pa Ramën)","Partia Demokratike (Sali Berisha)","Partia Mundësia (Agron Shehaj)","Shqipëria Bëhet (Adriatik Lapaj)","Lëvizja Bashkë (Arlind Qori)","Partia Socialdemokrate (Tom Doshi)","Një parti e re studentore","Tjetër","Nuk jam i/e sigurt","Nuk do të votoja"];
+var KEY="sondazh_rama_voted_v1";
+var app=document.getElementById("app"),sel=-1,timer=null;
+var base=DB_URL.replace(/\/+$/,"");
+
+function showMsg(t){app.innerHTML='<div class="msg"></div>';app.firstChild.textContent=t}
+function hasVoted(){try{return localStorage.getItem(KEY)==="1"}catch(e){return false}}
+function setVoted(){try{localStorage.setItem(KEY,"1")}catch(e){}}
+
+function showForm(){
+  app.innerHTML='<p class="hint">Zgjidh një opsion. Mund të votosh vetëm një herë.</p>';
+  var btns=[];
+  OPTIONS.forEach(function(o,i){
+    var b=document.createElement("button");b.className="opt";
+    b.innerHTML='<span class="dot"></span><span></span>';
+    b.lastChild.textContent=o;
+    b.onclick=function(){sel=i;btns.forEach(function(x,j){x.classList.toggle("sel",j===i)});go.disabled=false};
+    btns.push(b);app.appendChild(b);
+  });
+  var go=document.createElement("button");go.className="go";go.textContent="Voto";go.disabled=true;
+  go.onclick=async function(){
+    if(hasVoted()){showResults();return}
+    go.disabled=true;go.textContent="Duke ruajtur…";
+    try{
+      var body={};body["o"+sel]={".sv":{"increment":1}};
+      var r=await fetch(base+"/votes.json",{method:"PATCH",body:JSON.stringify(body)});
+      if(!r.ok)throw new Error();
+      setVoted();showResults();
+    }catch(e){go.disabled=false;go.textContent="Voto";showMsg("Vota nuk u ruajt. Kontrollo lidhjen dhe provo përsëri.")}
+  };
+  app.appendChild(go);
+}
+
+async function loadResults(){
+  var res=document.getElementById("res");if(!res)return;
+  try{
+    var r=await fetch(base+"/votes.json");var d=(await r.json())||{};
+    var counts=OPTIONS.map(function(_,i){return Number(d["o"+i])||0});
+    var n=counts.reduce(function(a,b){return a+b},0),enough=n>=10,mx=Math.max.apply(null,counts);
+    res.innerHTML="";
+    OPTIONS.forEach(function(o,i){
+      var p=n?Math.round(counts[i]*1000/n)/10:0;
+      var row=document.createElement("div");row.className="row"+(enough&&counts[i]===mx&&mx>0?" lead":"");
+      row.innerHTML='<div class="top"><span></span><b></b></div><div class="track"><div class="fill"></div></div>';
+      row.querySelector("span").textContent=o;
+      row.querySelector("b").textContent=enough?p+"%":"–";
+      row.querySelector(".fill").style.width=enough?p+"%":"0%";
+      res.appendChild(row);
+    });
+    document.getElementById("tot").textContent=n;
+    document.getElementById("low").textContent=enough?"Rezultatet përditësohen vetë.":"Përqindjet shfaqen kur të kenë votuar të paktën 10 persona.";
+  }catch(e){}
+}
+
+function showResults(){
+  app.innerHTML='<p class="thanks">Faleminderit për votën!</p><div id="res"></div><p class="note" id="low"></p><div class="pill"><span>Gjithsej persona që kanë votuar</span><b id="tot">0</b></div>';
+  loadResults();
+  if(!timer)timer=setInterval(loadResults,10000);
+}
+
+if(DB_URL.indexOf("PASTE_")===0){showMsg("Faqja nuk është konfiguruar ende: duhet të vendosësh adresën e bazës së të dhënave te DB_URL.")}
+else if(hasVoted()){showResults()}
+else{showForm()}
+</script>
+</body>
+</html>
